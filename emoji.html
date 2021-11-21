@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Emoji Person Generator </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <link rel = "stylesheet" href = "style.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+	<h1>Emoji Person Generator 🤓</h1>
+	<p>Click 'Generate' and we'll generate a random emoji person for you! 🍉 </p>
+</div>
+ 
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+
+		<button onclick="generatePerson()"> Generate My Emoji Person! </button>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+	 <div class="card-body">
+	 	<div class = "emojiContainer">
+
+	 		<div class="container">
+			  <div class="row">
+			    <div class="col text-center">
+					<div id= "mainPerson">
+					</div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+
+		<button onclick="CopyToClipboard('mainPerson')"> Copy to Clipboard! </button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+
+	function generatePerson() {
+
+	//database
+	const head_array = ["😁", "😒", "😎", "🥺", "😍", "🥳", "🤓", "🤮", "😩", "🥲", "😂", "😉", "😵‍💫", "😷"];
+	const onesies_array = ["👘", "🥻", "👗", "👙"];
+	const hands_array = ["👋","✌️", "🖕", "🤙", "👊", "🤘", "🤌"];
+	const shirt_array = ["🥼","👕", "🦺", "🥋", "🎽", "👚", "🧥"];
+	const bottom_array = ["👖", "🩳", "🩲"];
+	const shoes_array = ["👞", "👠","🛼","👡","🩴","👟","🥾"];
+	
+	//randomise and choose each emoji
+	var head = head_array[Math.floor(Math.random()*head_array.length)];
+	var onesies = onesies_array[Math.floor(Math.random()*onesies_array.length)];
+	var hand = hands_array[Math.floor(Math.random()*hands_array.length)];
+	var shirt = shirt_array[Math.floor(Math.random()*shirt_array.length)];
+	var bottom = bottom_array[Math.floor(Math.random()*bottom_array.length)];
+	var shoes = shoes_array[Math.floor(Math.random()*shoes_array.length)];
+
+	//key line to write main emoji person onto the screen
+	var main_person = head + "<br>" + shirt + "" + hand + "<br>" + bottom + "<br>" +  shoes + shoes;
+
+	var elem = document.getElementById('mainPerson').innerHTML = main_person;
+
+	}
+
+	function CopyToClipboard(containerid) {
+	  if (document.selection) {
+	    var range = document.body.createTextRange();
+	    range.moveToElementText(document.getElementById(containerid));
+	    range.select().createTextRange();
+	    document.execCommand("copy");
+	  } else if (window.getSelection) {
+	    var range = document.createRange();
+	    range.selectNode(document.getElementById(containerid));
+	    window.getSelection().addRange(range);
+	    document.execCommand("copy");
+	    alert("Text has been copied, now paste in the text-area")
+	  }
+	}
+	//document.write("<h2> main_person");
+</script>
+
+</body>
+</html>

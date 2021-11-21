@@ -1,0 +1,21 @@
+#mainPerson {
+	margin: 4rem;
+	font-size: 5rem;
+	text-align: left;
+	float: left;
+}
+
+.emojiContainer {
+	display: flex;
+	margin: 3rem;
+}
+
+.card {
+	background-color: #f4f4f4;
+	border-radius: 10px;
+	transition: transform 0.35s;
+}
+
+.card:hover {
+	transform: scale(1.05);
+}
