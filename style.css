@@ -19,3 +19,7 @@
 .card:hover {
 	transform: scale(1.05);
 }
+
+button {
+	margin-bottom: 4rem;
+}
