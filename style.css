@@ -33,7 +33,15 @@ button {
     width: 30%;
     margin: auto;
 	}
+	
+#hide-on-emoji {
+	font-size: 12px;
+}
 
+.centre-emoji {
+	display: flex;
+	justify-content: center;
+}
 
 /* hi-res laptops and desktops */ 
 }
