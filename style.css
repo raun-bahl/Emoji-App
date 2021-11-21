@@ -26,5 +26,14 @@ button {
 
 @media (min-width:1281px) { 
 
+	.card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    transition: transform 0.35s;
+    width: 30%;
+    margin: auto;
+	}
 
-/* hi-res laptops and desktops */ }
+
+/* hi-res laptops and desktops */ 
+}
