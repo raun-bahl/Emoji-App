@@ -68,14 +68,16 @@
 	function generatePerson() {
 
 	//database
+	const hat_array = ["🎩", "🧢", "🎓", "👒"];
 	const head_array = ["😁", "😒", "😎", "🥺", "😍", "🥳", "🤓", "🤮", "😩", "🥲", "😂", "😉", "😵‍💫", "😷"];
-	const onesies_array = ["👘", "🥻", "👗", "👙"];
-	const hands_array = ["👋","✌️", "🖕", "🤙", "👊", "🤘", "🤌"];
+	const onesies_array = ["👘", "🥻", "👗", "👙<br>🦵🦵"];
+	const hands_array = ["👋","✌️", "🖕", "🤙", "👊", "🤘", "🤌", "🤳","👍"];
 	const shirt_array = ["🥼","👕", "🦺", "🥋", "🎽", "👚", "🧥"];
-	const bottom_array = ["👖", "🩳", "🩲"];
+	const bottom_array = ["👖", "🩳<br>🦵🦵", "🩲<br>🦵🦵"];
 	const shoes_array = ["👞", "👠","🛼","👡","🩴","👟","🥾"];
 	
 	//randomise and choose each emoji
+	var hat = hat_array[Math.floor(Math.random()*hat_array.length)];
 	var head = head_array[Math.floor(Math.random()*head_array.length)];
 	var onesies = onesies_array[Math.floor(Math.random()*onesies_array.length)];
 	var hand = hands_array[Math.floor(Math.random()*hands_array.length)];
@@ -84,7 +86,7 @@
 	var shoes = shoes_array[Math.floor(Math.random()*shoes_array.length)];
 
 	//key line to write main emoji person onto the screen
-	var main_person = head + "<br>" + shirt + "" + hand + "<br>" + bottom + "<br>" +  shoes + shoes;
+	var main_person = hat + "<br>" + head + "<br>" + shirt + " " + hand + "<br>" + bottom + "<br>" +  shoes + shoes;
 
 	var elem = document.getElementById('mainPerson').innerHTML = main_person;
 

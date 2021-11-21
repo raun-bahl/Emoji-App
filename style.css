@@ -23,3 +23,8 @@
 button {
 	margin-bottom: 4rem;
 }
+
+@media (min-width:1281px) { 
+
+
+/* hi-res laptops and desktops */ }
