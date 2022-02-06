@@ -15,8 +15,6 @@ h2,h5 {
 	text-align: center;
 }
 
-
-
 .emojiContainer {
 	display: flex;
 	margin: 3rem;
@@ -87,17 +85,4 @@ h2,h5 {
   border: 0;
 }
 
-
-.btn-grad {background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%)}
-.btn-grad {
-margin: 0 auto;
-padding: 15px 45px;
-text-align: center;
-text-transform: uppercase;
-transition: 0.5s;
-background-size: 200% auto;
-color: white;            
-border-radius: 10px;
-display: block;
-}
 
