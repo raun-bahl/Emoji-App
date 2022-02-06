@@ -11,9 +11,9 @@
 </head>
 <body>
 
-<div class="jumbotron text-center">
-	<h1>Emoji Person Generator 🤓</h1>
-	<p>Click 'Generate' and we'll generate a random emoji person for you! 🍉 </p>
+<div class = "heading">
+	<h2> Emoji Person Generator 🤓 </h2>
+	<h5>Click 'Generate' and we'll generate a random emoji person for you! 🍉 </g5>
 </div>
  
 
@@ -21,13 +21,13 @@
   <div class="row">
     <div class="col text-center">
 
-		<button onclick="generatePerson()"> Generate My Emoji Person! </button>
+		<button class = "button-34" onclick="generatePerson()"> Generate </button>
 
     </div>
   </div>
 </div>
 
-<div class="card">
+<div id="card">
 	 <div class="card-body">
 	 	<div class = "emojiContainer">
 
@@ -50,7 +50,7 @@
   <div class="row">
     <div class="col text-center">
 
-		<button onclick="CopyToClipboard('mainPerson')"> Copy to Clipboard! </button>
+		<button class = "button-34" id = "copyClipboard" onclick="CopyToClipboard('mainPerson')"> Copy to Clipboard! </button>
 
     </div>
   </div>
@@ -69,11 +69,13 @@
 	//database
 	const hat_array = ["🎩", "🧢", "🎓", "👒", "👑"];
 	const head_array = ["😁", "😒", "😎", "🥺", "😍", "🥳", "🤓", "🤮", "😩", "🥲", "😂", "😉", "😵‍💫", "😷"];
-	const onesies_array = ["👘", "🥻", "👗<br>🦵🦵", "👙<br>🦵🦵"];
+	const onesies_array = ["👘", "🥻"];
 	const hands_array = ["👋","✌️", "🖕", "🤙", "👊", "🤘", "🤌", "🤳","👍"];
 	const shirt_array = ["🥼","👕", "🦺", "🥋", "🎽", "👚", "🧥"];
 	const bottom_array = ["👖", "🩳<br>🦵🦵", "🩲<br>🦵🦵"];
-	const shoes_array = ["👞", "👠","🛼","👡","🩴","👟","🥾"];
+	const shoes_array = ["👞", "👠","🛼","👡","🩴","👟","🥾", "👢","🥿","⛸"];
+
+	const leg_eligible_onesies = ["👙","👗"];
 	
 	//randomise and choose each emoji
 	var hat = hat_array[Math.floor(Math.random()*hat_array.length)];
@@ -84,10 +86,31 @@
 	var bottom = bottom_array[Math.floor(Math.random()*bottom_array.length)];
 	var shoes = shoes_array[Math.floor(Math.random()*shoes_array.length)];
 
+	var top_array = [onesies, shirt];
+	var top = top_array[Math.floor(Math.random()*top_array.length)];
+	console.log(top);
+
+	var is_onesie = false;
+	for (var i = 0; i < onesies_array.length; i++) {
+		if (onesies_array[i] == top) {
+			is_onesie = true;
+			break;
+		}
+	}
+
+	if (is_onesie) {
+		console.log("onesie");
+		var main_person= hat + "<br>" + head + "<br>" + top + " " + "<br>" +  shoes + shoes;
+	} else {
+		console.log("shirt and bottom");
+		var main_person = hat + "<br>" + head + "<br>" + shirt + " " + hand + "<br>" + bottom + "<br>" +  shoes + shoes;
+	}
+
 	//key line to write main emoji person onto the screen
-	var main_person = hat + "<br>" + head + "<br>" + shirt + " " + hand + "<br>" + bottom + "<br>" +  shoes + shoes;
 
 	var elem = document.getElementById('mainPerson').innerHTML = main_person;
+	document.getElementById('card').style.display = "block";
+	document.getElementById('copyClipboard').style.display = "block";
 
 	}
 
